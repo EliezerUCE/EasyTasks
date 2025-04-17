@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Añadir atributo para permitir guiones automáticos en español -->
+    <style>
+      html {
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+      }
+      body {
+        /* Establecer idioma para algoritmo de separación silábica */
+        -webkit-hyphenate-character: "-";
+        hyphenate-character: "-";
+      }
+    </style>
+    <title>EasyTasks - Tareas Cotidianas</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="screen-backdrop"></div>
+      <div class="home-screen screen">
+        <div class="head-wrapper">
+          <div class="menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+            </svg>
+          </div>
+
+          <div class="welcome">
+            <div class="content">
+              <h1>EasyTasks</h1>
+              <p>Tienes <span id="total-tasks">0</span> tareas pendientes</p>
+            </div>
+            <div class="img">
+              <div class="backdrop"></div>
+              <img src="images/logo2.png" alt="Logo" />
+            </div>
+          </div>
+        </div>
+
+        <div class="categories-wrapper">
+          <div class="categories">
+            <!-- Categorías dinámicas -->
+          </div>
+        </div>
+      </div>
+
+      <div class="category-screen screen">
+        <div class="head-wrapper">
+          <div class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+            </svg>
+          </div>
+        </div>
+        <div class="category-details">
+          <img src="images/logo2.png" alt="" id="category-img" />
+          <div class="details">
+            <p id="num-tasks">0 tareas</p>
+            <h1 id="category-title">Categoría</h1>
+          </div>
+        </div>
+        <div class="tasks-wrapper">
+          <div class="tasks">
+            <!-- Tareas dinámicas -->
+          </div>
+        </div>
+      </div>
+
+      <div class="add-task-btn" id="floating-action-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      </div>
+
+      <div class="black-backdrop"></div>
+
+      <!-- Modificación del formulario de tareas para eliminar el selector de categoría -->
+      <div class="add-task">
+        <div class="add-task-backdrop"></div>
+        <h1 class="heading">Agregar Tarea</h1>
+        <div class="input-group">
+          <label for="task-input">Tarea</label>
+          <input type="text" id="task-input" placeholder="Describe tu tarea" required />
+        </div>
+        <div class="input-group">
+          <label for="due-date">Fecha Límite</label>
+          <input type="date" id="due-date" required />
+        </div>
+        <div class="input-group">
+          <label for="priority-select">Prioridad</label>
+          <select id="priority-select" required>
+            <option value="alta">Alta</option>
+            <option value="media" selected>Media</option>
+            <option value="baja">Baja</option>
+          </select>
+        </div>
+        <div class="btns">
+          <button class="cancel-btn">Cancelar</button>
+          <button class="add-btn">Agregar</button>
+        </div>
+      </div>
+
+      <!-- Formulario para añadir categoría con el mismo estilo que el de tareas -->
+      <div class="add-category">
+        <div class="add-task-backdrop"></div>
+        <h1 class="heading">Agregar Categoría</h1>
+        <div class="input-group">
+          <label for="category-name-input">Nombre de la Categoría</label>
+          <input type="text" id="category-name-input" placeholder="Nombre de la categoría" required />
+        </div>
+        <div class="input-group">
+          <label for="category-image-input">Imagen</label>
+          <div class="file-input-wrapper">
+            <input type="file" id="category-image-input" accept="image/*" />
+            <div class="file-input-placeholder">
+              <span>Seleccionar imagen</span>
+              <small>(Se usará imagen predeterminada si no se selecciona ninguna)</small>
+            </div>
+          </div>
+          <div class="selected-image-preview">
+            <img id="image-preview" src="images/Predefinida.png" alt="Vista previa" />
+            <span class="preview-filename">Predefinida.png</span>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="cancel-category-btn">Cancelar</button>
+          <button class="add-category-btn">Agregar</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
